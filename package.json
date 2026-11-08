@@ -1,0 +1,12 @@
+{
+  "name": "kk-marathi-audio-maker",
+  "version": "1.0.0",
+  "description": "Marathi Text to Speech Audio Maker using Sarvam AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
