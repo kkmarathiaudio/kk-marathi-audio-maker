@@ -36,7 +36,7 @@ app.post('/api/tts', async (req, res) => {
         },
         body: JSON.stringify({
           text,
-          model: 'bulbul:v4-flash',
+          model: 'bulbul:v3',
           speaker,
           language_code: 'mr-IN',
           output_audio_codec: 'mp3',
