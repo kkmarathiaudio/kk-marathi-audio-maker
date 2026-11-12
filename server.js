@@ -8,7 +8,7 @@ app.use(express.static(__dirname));
 app.post('/api/tts', async (req, res) => {
   try {
     const apiKey = process.env.SARVAM_API_KEY;
-    const speaker = process.env.SARVAM_SPEAKER;
+    const speaker = process.env.SARVAM_SPEAKER || 'aditya';
 
     if (!apiKey || !speaker) {
       return res.status(500).json({
