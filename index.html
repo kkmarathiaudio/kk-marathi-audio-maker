@@ -45,7 +45,8 @@ async function makeAudio(){
   player.style.display='block';
   status.textContent='ऑडिओ तयार झाला!';
  }catch(error){
-  status.textContent='सर्व्हर जोडणी अजून पूर्ण झालेली नाही. पुढील सेटिंग करायची आहे.';
+  status.textContent='त्रुटी: '+error.message;
+  
  }
 }
 </script>
