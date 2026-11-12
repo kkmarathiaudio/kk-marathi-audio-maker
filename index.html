@@ -37,7 +37,10 @@ async function makeAudio(){
    headers:{'Content-Type':'application/json'},
    body:JSON.stringify({text})
   });
-  if(!response.ok) throw new Error('ऑडिओ तयार झाला नाही.');
+  if(!response.ok){
+  const err = await response.json();
+  throw new Error(err.error || err.message || 'सर्व्हर त्रुटी');
+  }
   const blob=await response.blob();
   const url=URL.createObjectURL(blob);
   const player=document.getElementById('player');
