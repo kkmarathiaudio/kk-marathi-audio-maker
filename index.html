@@ -19,7 +19,11 @@ audio{width:100%;margin-top:20px}
 <div class="container">
 <h1>🎙️ K.K. Marathi Audio Maker</h1>
 <p>मराठी मजकूर थेट आवाजात रूपांतरित करा</p>
-<textarea id="text" placeholder="येथे आपला मराठी मजकूर लिहा किंवा पेस्ट करा..."></textarea>
+<label for="language">भाषा निवडा:</label>
+<select id="language">
+  <option value="mr-IN">मराठी</option>
+  <option value="kn-IN">ಕನ್ನಡ</option>
+</select><textarea id="text" placeholder="येथे आपला मराठी मजकूर लिहा किंवा पेस्ट करा..."></textarea>
 <button id="make" onclick="makeAudio()">ऑडिओ तयार करा</button>
 <p id="status"></p>
 <audio id="player" controls style="display:none"></audio>
@@ -35,7 +39,10 @@ async function makeAudio(){
   const response=await fetch('/api/tts',{
    method:'POST',
    headers:{'Content-Type':'application/json'},
-   body:JSON.stringify({text})
+   body:JSON.stringify({
+  text,
+  language_code: document.getElementById('language').value
+})
   });
   if(!response.ok){
   const err = await response.json();
